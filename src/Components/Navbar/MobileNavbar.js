@@ -50,6 +50,7 @@ export default function MobileNavbar(props) {
 
     const handleComponentChange = (component) => {
         props.componentChange(component);
+        props.handleMenu(false, component);
     }
 
 

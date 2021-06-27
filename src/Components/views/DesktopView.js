@@ -33,8 +33,8 @@ export default function DesktopView(props) {
         }
     }
 
-    const handleMenu = (showMenu) => {
-        props.handleMenu(showMenu)
+    const handleMenu = (showMenu, component) => {
+        props.handleMenu(showMenu, component)
         if(showMenu)
             return setMenuShow(true);
         setMenuShow(false);
