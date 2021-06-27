@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
             cursor: "pointer",
         },
         marginTop: theme.spacing(1),
-        marginBottom: theme.spacing(1),
+        marginBottom: theme.spacing(3),
     },
         '&:hover': {
             cursor: "pointer",
@@ -60,13 +60,13 @@ export default function MenuItems(props) {
                                 <Box display="flex" justifyContent="flex-end"><CloseIcon onClick={() => handleClose()} /></Box>
                             </Grid>
                             <Grid item xs={12}>
-                                    <Box display="flex" justifyContent="center"><Typography className={classes.item} variant="h6" onClick={() => handleClick("resume")}>Resume</Typography></Box>
+                                    <Box display="flex" justifyContent="center"><Typography className={classes.item} variant="h5" onClick={() => handleClick("resume")}>Resume</Typography></Box>
                             </Grid>
                             <Grid item xs={12}>
-                                <Box display="flex" justifyContent="center"><Typography className={classes.item} variant="h6" onClick={() => handleClick("projects")}>Projects</Typography></Box>
+                                <Box display="flex" justifyContent="center"><Typography className={classes.item} variant="h5" onClick={() => handleClick("projects")}>Projects</Typography></Box>
                             </Grid>
                             <Grid item xs={12}>
-                                <Box display="flex" justifyContent="center"><Typography className={classes.item} variant="h6" onClick={() => handleClick("contact")}>Contact</Typography></Box>
+                                <Box display="flex" justifyContent="center"><Typography className={classes.item} variant="h5" onClick={() => handleClick("contact")}>Contact</Typography></Box>
                             </Grid>
                         </Grid>
                     </Box>
