@@ -61,7 +61,7 @@ export default function MobileNavbar(props) {
                     <Typography variant="h6" className={classes.name} onClick={() => handleComponentChange("home")}>Eduardo Alvarado</Typography>
                     {/* <Typography variant="subtitle2" className={classes.subtitle} onClick={() => handleComponentChange("home")}>Web Developer</Typography> */}
 
-                    <Menu onClick={() => showMenuItems()} />
+                    <Menu style={{ fontSize: 35 }} onClick={() => showMenuItems()} />
                 </Toolbar>
             </AppBar>
         </Box>
