@@ -8,12 +8,15 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        [theme.breakpoints.down("lg")]: {
-            marginLeft: theme.spacing(4),
+        [theme.breakpoints.up("lg")]: {
+            marginTop: theme.spacing(10),
         },
-        marginTop: theme.spacing(10),
+        marginLeft: theme.spacing(2),
     },
     body: {
+        [theme.breakpoints.down("lg")]: {
+            fontSize: 15,
+        },
         lineHeight: 1.8,
         letterSpacing: 1,
         wordSpacing: 3,
@@ -49,6 +52,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Resume(props) {
     const classes = useStyles();
+    const mobileView = props.mobileView;
 
     return(
             <Box className={classes.root}>
@@ -65,10 +69,10 @@ export default function Resume(props) {
                             </Grid>
                             <Grid container xs={12} lg={4}>
                                 <Grid item xs={12} lg={3}>
-                                    <Typography variant="caption">April 2021 - June 2021</Typography>
+                                    <Typography variant={mobileView ? "body2" : "caption"}>April 2021 - June 2021</Typography>
                                 </Grid>
                                 <Grid item xs={12} lg={6}>
-                                    <Typography variant="subtitle2" className={classes.subtitle}>Web Developer Intern</Typography>
+                                    <Typography variant={mobileView ? "h6" : "subtitle2"} className={classes.subtitle}>Web Developer Intern</Typography>
                                     <Typography className={classes.body}>I Recently completed a web developer internship at a start up called Conceptia. During my time there, I worked on creating functional react components as well as creating and implementing API methods. The project utilized React for the front end, Node.js/Express for the backend, and mySQL for the database. I was able to gain valuable experience working with other like minded developers. I gained experience creating API methods with SQL statements using restful operations and implementing them to the frontend.</Typography>
                                 </Grid>
                             </Grid>
@@ -81,10 +85,10 @@ export default function Resume(props) {
                             </Grid>
                             <Grid container xs={12} lg={4}>
                                 <Grid item xs={12} lg={3}>
-                                    <Typography variant="caption">August 2016 - December 2020</Typography>
+                                    <Typography variant={mobileView ? "body2" : "caption"}>August 2016 - December 2020</Typography>
                                 </Grid>
                                 <Grid item xs={12} lg={6}>
-                                    <Typography variant="subtitle2" className={classes.subtitle}>C.T Bauer College of Business | <br /> Bachelor's Degree</Typography>
+                                    <Typography variant={mobileView ? "h6" : "subtitle2"} className={classes.subtitle}>C.T Bauer College of Business | <br /> Bachelor's Degree</Typography>
                                     <Typography className={classes.body}>During my time in the College of Business, I took an MIS intro course where the curriculum covered excel and its features. I discovered that I enjoyed thinking logically and creating functions that improved efficiency in the workflow. I then decided to take additional courses related to programming such as Intro into Object Oriented Programming. During this course I discovered how much I enjoyed programming and logical thinking which drove me to major in MIS. My electives consisted of more technical courses such as Intro Into Web Development, Intro Into LAMP stack, Advanced Database Management systems, and Advanced Transaction Processing Systems.</Typography>
                                 </Grid>
                             </Grid>

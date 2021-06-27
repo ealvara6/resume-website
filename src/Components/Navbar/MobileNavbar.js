@@ -6,7 +6,6 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import Menu from '@material-ui/icons/Menu';
-import MenuItems from './MenuItems';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -17,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
             cursor: "pointer",
         },
         [theme.breakpoints.down("xs")]: {
-            fontSize: 25,
+            fontSize: 40,
         },
         fontSize: 40,
         marginRight: theme.spacing(1),
@@ -26,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
         '&:hover': {
             cursor: "pointer",
         },
+        flexGrow: 1,
         marginRight: theme.spacing(1),
         fontWeight: theme.typography.fontWeightBold,
     },
@@ -38,7 +38,6 @@ const useStyles = makeStyles((theme) => ({
         marginTop: 5,
     },
 }));
-
 
 
 export default function MobileNavbar(props) {
@@ -55,12 +54,12 @@ export default function MobileNavbar(props) {
 
 
     return(
-        <Box marginBottom="150px">
+        <Box marginBottom="25px">
             <AppBar position="static" color="transparent" className={classes.root}>
                 <Toolbar>
                     <FiberManualRecordIcon className={classes.icon} color="primary" onClick={() => handleComponentChange("home")} />
-                    <Typography variant="body1" className={classes.name} onClick={() => handleComponentChange("home")}>Eduardo Alvarado</Typography>
-                    <Typography variant="subtitle2" className={classes.subtitle} onClick={() => handleComponentChange("home")}>Web Developer</Typography>
+                    <Typography variant="h6" className={classes.name} onClick={() => handleComponentChange("home")}>Eduardo Alvarado</Typography>
+                    {/* <Typography variant="subtitle2" className={classes.subtitle} onClick={() => handleComponentChange("home")}>Web Developer</Typography> */}
 
                     <Menu onClick={() => showMenuItems()} />
                 </Toolbar>

@@ -14,14 +14,23 @@ const userID = init(process.env.REACT_APP_USER_ID);
 
 const useStyles = makeStyles((theme) => ({
     root: {
+        [theme.breakpoints.down("xs")]: {
+            marginLeft: theme.spacing(2),
+            marginRight: theme.spacing(2),
+            marginTop: theme.spacing(2),
+            marginBottom: theme.spacing(10),
+        },
         marginTop: theme.spacing(10),
-        marginBottom: theme.spacing(40),
+        marginBottom: theme.spacing(30),
     },
     header: {
         fontWeight: theme.typography.fontWeightBold,
         marginBottom: theme.spacing(1),
     },
     title: {
+        [theme.breakpoints.down("xs")]: {
+            fontSize: 23,
+        },
         fontWeight: theme.typography.fontWeightBold,
     },
     contact: {
@@ -37,6 +46,7 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.down("sm")]: {
             marginTop: theme.spacing(3),
         },
+        marginTop: theme.spacing(3),
         width: 125,
         height: 125,
         borderRadius: "50%",
@@ -47,12 +57,13 @@ const useStyles = makeStyles((theme) => ({
         borderWidth: "thin",
     },
     field: {
-        marginBottom: theme.spacing(3),
+        marginTop: theme.spacing(3),
     },
 }))
 
 export default function Contact(props){
     const classes = useStyles();
+    const mobileView = props.mobileView;
     const [data, setData] = useState({
         first_name: "",
         last_name: "",
@@ -104,24 +115,24 @@ export default function Contact(props){
         <Box className={classes.root}>
             <Grid container xs={12} justify="center">
                 <Grid container xs={12} justify="center">
-                    <Grid item xs={7} sm={4}>
+                    <Grid item xs={12} sm={4}>
                             <Box className={classes.contact}>
                                 <Typography variant="h4" className={classes.header}>Contact</Typography>
-                                <Typography variant="caption">Looking forward to hearing from you</Typography>
+                                <Typography variant={mobileView ? "body1" : "caption"}>Looking forward to hearing from you</Typography>
                             </Box>
                             <Box className={classes.info}>
                                 <Typography className={classes.title}>Phone</Typography>
-                                <Typography variant="caption">832-853-5119</Typography>
+                                <Typography variant={mobileView ? "body1" : "caption"}>832-853-5119</Typography>
                             </Box>
 
                             <Box className={classes.info}>
                                 <Typography className={classes.title}>Email</Typography>
-                                <Typography variant="caption">Eduardo.alvarado1234@ymail.com</Typography>
+                                <Typography variant={mobileView ? "body1" : "caption"}>Eduardo.alvarado1234@ymail.com</Typography>
                             </Box>
 
                     </Grid>
 
-                    <Grid container xs={7} sm={4} justify="flex-end">
+                    <Grid container xs={12} sm={4} justify="flex-end">
                         {showSuccess ? <Grid item xs={12}>
                             <Box marginBottom="20px">
                                 <Success message="Email Sent!" />
@@ -129,22 +140,22 @@ export default function Contact(props){
                         </Grid> : null}
                         <Grid container>
                             <Grid item xs={12} sm={6} className={classes.field}>
-                                <TextField onChange={(e) => handleChange("first_name", e)} variant="outlined" id="first-name" label="First Name" />
+                                <TextField onChange={(e) => handleChange("first_name", e)} fullWidth={mobileView ? true : false} variant="outlined" id="first-name" label="First Name" />
                             </Grid>
                             <Grid item xs={12} sm={6} className={classes.field}>
-                                <TextField onChange={(e) => handleChange("last_name", e)} variant="outlined" id="last-name" label="Last Name" />
+                                <TextField onChange={(e) => handleChange("last_name", e)} fullWidth={mobileView ? true : false}  variant="outlined" id="last-name" label="Last Name" />
                             </Grid>
                             <Grid item xs={12} sm={6}  className={classes.field}>
-                                {isEmail ? <TextField onChange={(e) => handleChange("email", e)} required variant="outlined" id="email" label="Email" />
-                                : <TextField onChange={(e) => handleChange("email", e)} error id="email-error" label="Email" defaultValue={data.email} variant="outlined" helperText="Please enter an email address." />}
+                                {isEmail ? <TextField onChange={(e) => handleChange("email", e)} fullWidth={mobileView ? true : false}  required variant="outlined" id="email" label="Email" />
+                                : <TextField onChange={(e) => handleChange("email", e)} fullWidth={mobileView ? true : false}  error id="email-error" label="Email" defaultValue={data.email} variant="outlined" helperText="Please enter an email address." />}
                             </Grid>
                             <Grid item xs={12} sm={6} className={classes.field}>
-                                <TextField onChange={(e) => handleChange("subject", e)} variant="outlined" id="subject" label="Subject" />
+                                <TextField onChange={(e) => handleChange("subject", e)} fullWidth={mobileView ? true : false}  variant="outlined" id="subject" label="Subject" />
                             </Grid>
                         </Grid>
                         <Grid container>
                             <Grid item xs={12} sm={6} >
-                                <TextField onChange={(e) => handleChange("message", e)} variant="outlined" id="message" label="Message" multiline rows={4} fullWidth />
+                                <TextField className={classes.field} onChange={(e) => handleChange("message", e)} fullWidth={mobileView ? true : false}  variant="outlined" id="message" label="Message" multiline rows={4} fullWidth />
                             </Grid>
                             <Grid container xs={12} sm={6}>
                                 <Box onClick={() => sendEmail()} display="flex" className={classes.button} justifyContent="center" alignItems="center" marginLeft="15px">

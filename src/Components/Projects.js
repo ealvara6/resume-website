@@ -7,7 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
     root: {
         [theme.breakpoints.down("lg")]: {
-            marginLeft: theme.spacing(5),
+            marginLeft: theme.spacing(2),
         },
         marginTop: theme.spacing(10),
     },
@@ -20,14 +20,21 @@ const useStyles = makeStyles((theme) => ({
     header: {
         [theme.breakpoints.up("lg")]: {
             marginLeft: theme.spacing(30),
+            marginBottom: theme.spacing(10),
         },
         fontWeight: theme.typography.fontWeightBold,
-        marginBottom: theme.spacing(10),
+        marginBottom: theme.spacing(3),
     },
     title: {
+        [theme.breakpoints.down("lg")]: {
+            fontSize: 25,
+        },
         fontWeight: theme.typography.fontWeightBold,
     },
     body: {
+        [theme.breakpoints.down("lg")]: {
+            fontSize: 16,
+        },
         lineHeight: "1.7",
     },
     project: {
@@ -59,7 +66,7 @@ export default function Projects(props){
                         <Grid item xs={12} lg={3} className={classes.project}>
                             <Box marginBottom="15px">
                                 <Typography variant="h6" className={classes.title}>Wallpaper Engine</Typography>
-                                <Typography variant="caption"> <a href="https://wallpaperengine.live" target="_blank">wallpaperengine.live</a></Typography>
+                                <Typography variant={mobileView ? "body1" : "caption"}> <a href="https://wallpaperengine.live" target="_blank">wallpaperengine.live</a></Typography>
                             </Box>
 
                             <Typography variant="body2" className={classes.body}>

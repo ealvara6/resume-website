@@ -11,20 +11,25 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: "center",
     },
     block: {
-        marginLeft: theme.spacing(8),
-        marginRight: theme.spacing(8),
+        marginLeft: theme.spacing(2),
+        marginRight: theme.spacing(2),
+        [theme.breakpoints.up("sm")]: {
+            marginLeft: theme.spacing(8),
+            marginRight: theme.spacing(8),
+        },
     },
     title: {
         marginBottom: theme.spacing(2),
+        fontWeight: theme.typography.fontWeightBold,
     },
     subtitle: {
-        fontWeight: theme.typography.fontWeightMedium,
+        fontWeight: theme.typography.fontWeightBold,
         marginBottom: theme.spacing(1),
     },
     buttons: {
         justifyContent: "space-around",
         [theme.breakpoints.down("sm")]: {
-            marginBottom: theme.spacing(10),
+            marginBottom: theme.spacing(2),
         },
     },
 }));
@@ -50,7 +55,7 @@ export default function HomeComponent(props) {
                         </Grid>
                         <Grid item xs={12} lg={4}>
                             <Box className={classes.block}>
-                                <Typography className={classes.title} variant="h1">Hello</Typography>
+                                <Typography className={classes.title} variant={mobileView ? "h3" : "h1"}>Hello</Typography>
                                 <Typography className={classes.subtitle} variant="h5">A Bit About Me</Typography>
                                 <Typography variant="subtitle1">Hi, My name is Eduardo. I am an aspiring developer currently working on personal web development projects. I graduated from the University of Houston under the C.T Bauer College of Business with a degree in Management Information Systems with magna cum laude honors.</Typography>
                                 <Grid container className={classes.buttons} xs={12}>

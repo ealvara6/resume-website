@@ -47,9 +47,9 @@ export default function DesktopView(props) {
                         <Fade in={show} timeout={show ? 2000 : 1000}>
                         <Box>
                             {showComponent === "home" ?<HomeComponent componentChange={handleComponentChange} mobileView={mobileView} />: null}
-                            {showComponent === "resume" ? <Resume /> : null}
+                            {showComponent === "resume" ? <Resume mobileView={mobileView} /> : null}
                             {showComponent === "projects" ? <Projects mobileView={mobileView} /> : null}
-                            {showComponent === "contact" ? <Contact /> : null}
+                            {showComponent === "contact" ? <Contact mobileView={mobileView} /> : null}
                         </Box>
                         </Fade>
                     <Footer mobileView={mobileView} />
