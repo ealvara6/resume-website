@@ -48,7 +48,7 @@ export default function DesktopView(props) {
                         <Box>
                             {showComponent === "home" ?<HomeComponent componentChange={handleComponentChange} mobileView={mobileView} />: null}
                             {showComponent === "resume" ? <Resume /> : null}
-                            {showComponent === "projects" ? <Projects /> : null}
+                            {showComponent === "projects" ? <Projects mobileView={mobileView} /> : null}
                             {showComponent === "contact" ? <Contact /> : null}
                         </Box>
                         </Fade>

@@ -45,6 +45,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Projects(props){
     const classes = useStyles();
+    const mobileView = props.mobileView;
 
     return(
         <Box className={classes.root}>
@@ -80,7 +81,8 @@ export default function Projects(props){
                         </Grid>
                         <Grid item xs={12} lg={6}>
                             <Box className={classes.img}>
-                                <img src="/Images/wallpaper-engine.png" alt="" />
+                                
+                                {mobileView ? <img src="/Images/wallpaper-engine-mobile.png" /> : <img src="/Images/wallpaper-engine.png" alt="" />}
                             </Box>
                         </Grid>
                     {/* </Box> */}
@@ -93,7 +95,7 @@ export default function Projects(props){
                         </Grid>
                         <Grid item xs={12} lg={5}>
                             <Box className={classes.img}>
-                                <img src="/Images/website-design.png" alt="" />
+                                {mobileView ? <img src="/Images/website-design-mobile.png" /> : <img src="/Images/website-design.png" alt="" />}
                             </Box>
                         </Grid>
                     {/* </Box> */}
