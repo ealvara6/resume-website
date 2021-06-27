@@ -26,15 +26,15 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: theme.spacing(3),
     },
     title: {
-        [theme.breakpoints.down("lg")]: {
+        // [theme.breakpoints.down("lg")]: {
             fontSize: 25,
-        },
+        // },
         fontWeight: theme.typography.fontWeightBold,
     },
     body: {
-        [theme.breakpoints.down("lg")]: {
+        // [theme.breakpoints.down("lg")]: {
             fontSize: 16,
-        },
+        // },
         lineHeight: "1.7",
     },
     project: {
