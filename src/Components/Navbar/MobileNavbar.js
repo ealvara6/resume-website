@@ -16,6 +16,9 @@ const useStyles = makeStyles((theme) => ({
         '&:hover': {
             cursor: "pointer",
         },
+        [theme.breakpoints.down("xs")]: {
+            fontSize: 25,
+        },
         fontSize: 40,
         marginRight: theme.spacing(1),
     },
@@ -55,7 +58,7 @@ export default function MobileNavbar(props) {
             <AppBar position="static" color="transparent" className={classes.root}>
                 <Toolbar>
                     <FiberManualRecordIcon className={classes.icon} color="primary" onClick={() => handleComponentChange("home")} />
-                    <Typography variant="h5" className={classes.name} onClick={() => handleComponentChange("home")}>Eduardo Alvarado</Typography>
+                    <Typography variant="body1" className={classes.name} onClick={() => handleComponentChange("home")}>Eduardo Alvarado</Typography>
                     <Typography variant="subtitle2" className={classes.subtitle} onClick={() => handleComponentChange("home")}>Web Developer</Typography>
 
                     <Menu onClick={() => showMenuItems()} />

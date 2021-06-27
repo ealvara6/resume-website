@@ -9,9 +9,13 @@ const useStyles = makeStyles((theme) => ({
         "&:hover": {
             cursor: "pointer",
         },
-        [theme.breakpoints.down("xs")]: {
+        [theme.breakpoints.down("sm")]: {
             width: 100,
             height: 100,
+        },
+        [theme.breakpoints.down("xs")]: {
+            width: 75,
+            height: 75,
         },
         marginTop: theme.spacing(4),
         borderStyle: "solid",
@@ -25,10 +29,13 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: "center",
         alignContent: "center",
     }),
+    title: {
+    }
 }));
 
 export default function NavButton(props) {
     const classes = useStyles(props);
+    const mobileView = props.mobileView;
     const timeout = props.slide;
     const title = props.title;
 
@@ -36,7 +43,7 @@ export default function NavButton(props) {
         <>
             <Slide direction="up" in={true} timeout={timeout}>
                     <Grid container className={classes.root}>
-                        <Grid item><Typography variant="h6">{title}</Typography></Grid>
+                        <Grid item><Typography variant={mobileView ? "subtitle2" : "h6"}>{title}</Typography></Grid>
                     </Grid>
             </Slide>
         </>

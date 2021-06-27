@@ -44,7 +44,8 @@ export default function HomeComponent(props) {
                     <Grid container className={classes.container} xs={12} direction={mobileView ? "column-reverse" : "row"}>
                         <Grid item sm={12} lg={4} className={classes.headshot}>
                             <Box display="flex" justifyContent="center">
-                                <img className={classes.headshot} src="/Images/website-headshot.png" alt="Headshot" />
+                                {!mobileView ? <img className={classes.headshot} src="/Images/website-headshot.png" alt="Headshot" />
+                                    : <img classsName={classes.headshot} src="/Images/website-headshot-mobile.png" alt="Headshot" />}
                             </Box>
                         </Grid>
                         <Grid item xs={12} lg={4}>
@@ -54,13 +55,13 @@ export default function HomeComponent(props) {
                                 <Typography variant="subtitle1">Hi, My name is Eduardo. I am an aspiring developer currently working on personal web development projects. I graduated from the University of Houston under the C.T Bauer College of Business with a degree in Management Information Systems with magna cum laude honors.</Typography>
                                 <Grid container className={classes.buttons} xs={12}>
                                     <Grid item onClick={() => handleComponentChange("resume")} >
-                                        <NavButton color="#3f51b5"  slide={1500} title="Resume" textColor="#fff"/>
+                                        <NavButton mobileView={mobileView} color="#3f51b5"  slide={1500} title="Resume" textColor="#fff"/>
                                     </Grid>
                                     <Grid item onClick={() => handleComponentChange("projects")}>
-                                        <NavButton color="#f50057" slide={1800} title="Projects" textColor="#fff"/>
+                                        <NavButton mobileView={mobileView} color="#f50057" slide={1800} title="Projects" textColor="#fff"/>
                                     </Grid>
                                     <Grid item onClick={() => handleComponentChange("contact")}>
-                                        <NavButton color="#f44336" slide={2100} title="Contact" textColor="#fff"/>
+                                        <NavButton mobileView={mobileView} color="#f44336" slide={2100} title="Contact" textColor="#fff"/>
                                     </Grid>
                                 </Grid>
                             </Box>
@@ -69,4 +70,4 @@ export default function HomeComponent(props) {
             </Slide>
         </Box>
     )
-}
+} 
