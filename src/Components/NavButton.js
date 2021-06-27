@@ -35,10 +35,14 @@ export default function NavButton(props) {
     const timeout = props.slide;
     const title = props.title;
 
+    const handleClick = () => {
+        props.handleClick(title.toLowerCase());
+    }
+
     return(
         <>
             <Slide direction="up" in={true} timeout={timeout}>
-                    <Grid container className={classes.root}>
+                    <Grid container className={classes.root} onClick={() => handleClick()}>
                         <Grid item><Typography variant={mobileView ? "body1" : "h6"}>{title}</Typography></Grid>
                     </Grid>
             </Slide>
