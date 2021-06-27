@@ -9,9 +9,9 @@ const useStyles = makeStyles((theme) => ({
         "&:hover": {
             cursor: "pointer",
         },
-        [theme.breakpoints.down("sm")]: {
-            width: 85,
-            height: 85,
+        [theme.breakpoints.down("xs")]: {
+            width: 100,
+            height: 100,
         },
         marginTop: theme.spacing(4),
         borderStyle: "solid",
@@ -43,7 +43,7 @@ export default function NavButton(props) {
         <>
             <Slide direction="up" in={true} timeout={timeout}>
                     <Grid container className={classes.root} onClick={() => handleClick()}>
-                        <Grid item><Typography variant={mobileView ? "body1" : "h6"}>{title}</Typography></Grid>
+                        <Grid item><Typography variant="h6">{title}</Typography></Grid>
                     </Grid>
             </Slide>
         </>
