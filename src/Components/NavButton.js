@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
         "&:hover": {
             cursor: "pointer",
         },
-        [theme.breakpoints.down("xs")]: {
+        [theme.breakpoints.down("lg")]: {
             width: 100,
             height: 100,
         },

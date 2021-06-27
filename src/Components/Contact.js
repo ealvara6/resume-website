@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import { React, useState, useEffect } from 'react';
 import emailjs from 'emailjs-com';
 import { init } from 'emailjs-com';
 import Success from './success';
@@ -14,7 +14,7 @@ const userID = init(process.env.REACT_APP_USER_ID);
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        [theme.breakpoints.down("xs")]: {
+        [theme.breakpoints.down("lg")]: {
             marginLeft: theme.spacing(2),
             marginRight: theme.spacing(2),
             marginTop: theme.spacing(2),
@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: theme.spacing(1),
     },
     title: {
-        [theme.breakpoints.down("xs")]: {
+        [theme.breakpoints.down("md")]: {
             fontSize: 23,
         },
         fontWeight: theme.typography.fontWeightBold,
@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
         "&:hover": {
             cursor: "pointer",
         },
-        [theme.breakpoints.down("sm")]: {
+        [theme.breakpoints.down("md")]: {
             marginTop: theme.spacing(3),
         },
         marginTop: theme.spacing(3),
@@ -63,7 +63,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Contact(props){
     const classes = useStyles();
-    const mobileView = props.mobileView;
     const [data, setData] = useState({
         first_name: "",
         last_name: "",
@@ -73,6 +72,19 @@ export default function Contact(props){
     });
     const [isEmail, setIsEmail] = useState(true);
     const [showSuccess, setShowSuccess] = useState(false);
+    const [viewPort, setViewPort] = useState(window.innerWidth);
+
+    useEffect(() => {
+        window.addEventListener("resize", handleViewPort);
+
+        return () => {
+            window.removeEventListener("resize", handleViewPort);
+        }
+    }, []);
+
+    const handleViewPort = () => {
+        setViewPort(window.innerWidth);
+    }
 
 
     const sendEmail = () => {
@@ -113,51 +125,52 @@ export default function Contact(props){
 
     return(
         <Box className={classes.root}>
+            {console.log(viewPort)}
             <Grid container xs={12} justify="center">
                 <Grid container xs={12} justify="center">
-                    <Grid item xs={12} sm={4}>
+                    <Grid item xs={12} md={4}>
                             <Box className={classes.contact}>
                                 <Typography variant="h4" className={classes.header}>Contact</Typography>
-                                <Typography variant={mobileView ? "body1" : "caption"}>Looking forward to hearing from you</Typography>
+                                <Typography variant={viewPort < 1280 ? "body1" : "subtitle1"}>Looking forward to hearing from you</Typography>
                             </Box>
                             <Box className={classes.info}>
                                 <Typography className={classes.title}>Phone</Typography>
-                                <Typography variant={mobileView ? "body1" : "caption"}>832-853-5119</Typography>
+                                <Typography variant={viewPort < 1280 ? "body1" : "subtitle1"}>832-853-5119</Typography>
                             </Box>
 
                             <Box className={classes.info}>
                                 <Typography className={classes.title}>Email</Typography>
-                                <Typography variant={mobileView ? "body1" : "caption"}>Eduardo.alvarado1234@ymail.com</Typography>
+                                <Typography variant={viewPort < 1280 ? "body1" : "subtitle1"}>Eduardo.alvarado1234@ymail.com</Typography>
                             </Box>
 
                     </Grid>
 
-                    <Grid container xs={12} sm={4} justify="flex-end">
+                    <Grid container xs={12} md={4} justify="flex-end">
                         {showSuccess ? <Grid item xs={12}>
                             <Box marginBottom="20px">
                                 <Success message="Email Sent!" />
                             </Box>
                         </Grid> : null}
                         <Grid container>
-                            <Grid item xs={12} sm={6} className={classes.field}>
-                                <TextField onChange={(e) => handleChange("first_name", e)} fullWidth={mobileView ? true : false} variant="outlined" id="first-name" label="First Name" />
+                            <Grid item xs={12} md={6} className={classes.field}>
+                                <TextField onChange={(e) => handleChange("first_name", e)} fullWidth={viewPort < 1280 ? true : false} variant="outlined" id="first-name" label="First Name" />
                             </Grid>
-                            <Grid item xs={12} sm={6} className={classes.field}>
-                                <TextField onChange={(e) => handleChange("last_name", e)} fullWidth={mobileView ? true : false}  variant="outlined" id="last-name" label="Last Name" />
+                            <Grid item xs={12} md={6} className={classes.field}>
+                                <TextField onChange={(e) => handleChange("last_name", e)} fullWidth={viewPort < 1280 ? true : false}  variant="outlined" id="last-name" label="Last Name" />
                             </Grid>
-                            <Grid item xs={12} sm={6}  className={classes.field}>
-                                {isEmail ? <TextField onChange={(e) => handleChange("email", e)} fullWidth={mobileView ? true : false}  required variant="outlined" id="email" label="Email" />
-                                : <TextField onChange={(e) => handleChange("email", e)} fullWidth={mobileView ? true : false}  error id="email-error" label="Email" defaultValue={data.email} variant="outlined" helperText="Please enter an email address." />}
+                            <Grid item xs={12} md={6}  className={classes.field}>
+                                {isEmail ? <TextField onChange={(e) => handleChange("email", e)} fullWidth={viewPort < 1280 ? true : false}  required variant="outlined" id="email" label="Email" />
+                                : <TextField onChange={(e) => handleChange("email", e)} fullWidth={viewPort < 1280 ? true : false}  error id="email-error" label="Email" defaultValue={data.email} variant="outlined" helperText="Please enter an email address." />}
                             </Grid>
-                            <Grid item xs={12} sm={6} className={classes.field}>
-                                <TextField onChange={(e) => handleChange("subject", e)} fullWidth={mobileView ? true : false}  variant="outlined" id="subject" label="Subject" />
+                            <Grid item xs={12} md={6} className={classes.field}>
+                                <TextField onChange={(e) => handleChange("subject", e)} fullWidth={viewPort < 1280 ? true : false}  variant="outlined" id="subject" label="Subject" />
                             </Grid>
                         </Grid>
                         <Grid container>
-                            <Grid item xs={12} sm={6} >
-                                <TextField className={classes.field} onChange={(e) => handleChange("message", e)} fullWidth={mobileView ? true : false}  variant="outlined" id="message" label="Message" multiline rows={4} fullWidth />
+                            <Grid item xs={12} md={6} >
+                                <TextField className={classes.field} onChange={(e) => handleChange("message", e)} fullWidth={viewPort < 1280 ? true : false}  variant="outlined" id="message" label="Message" multiline rows={4} fullWidth />
                             </Grid>
-                            <Grid container xs={12} sm={6}>
+                            <Grid container xs={12} md={6}>
                                 <Box onClick={() => sendEmail()} display="flex" className={classes.button} justifyContent="center" alignItems="center" marginLeft="15px">
                                     <Typography variant="h6">Submit</Typography>
                                 </Box>

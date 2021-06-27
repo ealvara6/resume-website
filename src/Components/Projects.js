@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     },
     header: {
         [theme.breakpoints.up("lg")]: {
-            marginLeft: theme.spacing(30),
+            // marginLeft: theme.spacing(30),
             marginBottom: theme.spacing(10),
         },
         fontWeight: theme.typography.fontWeightBold,
@@ -57,12 +57,14 @@ export default function Projects(props){
     return(
         <Box className={classes.root}>
             <Grid container xs={12} lg={12} className={classes.container}>
-                {/* <Grid container xs={12} lg={8}> */}
-                    <Grid item xs={12} lg={12}>
+                <Grid container xs={12} lg={12} justify="center">
+                    <Grid item xs={12} lg={9}>
                         <Typography variant="h4" className={classes.header}>Projects</Typography>
                     </Grid>
+                </Grid>
 
                     {/* <Box display="flex" className={classes.project}> */}
+                    <Grid container className={classes.container}>
                         <Grid item xs={12} lg={3} className={classes.project}>
                             <Box marginBottom="15px">
                                 <Typography variant="h6" className={classes.title}>Wallpaper Engine</Typography>
@@ -92,19 +94,21 @@ export default function Projects(props){
                                 {mobileView ? <img src="/Images/wallpaper-engine-mobile.png" /> : <img src="/Images/wallpaper-engine.png" alt="" />}
                             </Box>
                         </Grid>
+                    </Grid>
                     {/* </Box> */}
 
-
+                    <Grid container className={classes.container}>
                     {/* <Box display="flex" className={classes.project}> */}
-                        <Grid item xs={12} lg={4} className={classes.project}>
+                        <Grid item xs={12} lg={3} className={classes.project}>
                             <Typography variant="h6" className={classes.title}>Resume Website</Typography>
-                            <Typography variant="body2" className={classes.body}>I created this website to display my resume and skills and to also show that if given a website design, I can implement it using html/css/javascript. This website is based off of <a href="https://www.wix.com/website-template/view/html/2846?siteId=9dabe0d0-1603-4a04-9bd6-7d9d9ca9e9cb&metaSiteId=3e8b1a18-1c30-41cf-87ac-e18816787ea8&originUrl=https%3A%2F%2Fwww.wix.com%2Fwebsite%2Ftemplates%2Fhtml%2Fportfolio-cv&tpClick=view_button" target="_blank">this</a> this design and utilizes the React framework. </Typography>
+                            <Typography variant="body2" className={classes.body}>I created this website to display my resume and skills and to also show that if given a website design, I can implement it using html/css/javascript. This website is based on <a href="https://www.wix.com/website-template/view/html/2846?siteId=9dabe0d0-1603-4a04-9bd6-7d9d9ca9e9cb&metaSiteId=3e8b1a18-1c30-41cf-87ac-e18816787ea8&originUrl=https%3A%2F%2Fwww.wix.com%2Fwebsite%2Ftemplates%2Fhtml%2Fportfolio-cv&tpClick=view_button" target="_blank">this</a> design and utilizes the React framework. </Typography>
                         </Grid>
-                        <Grid item xs={12} lg={5}>
+                        <Grid item xs={12} lg={6}>
                             <Box className={classes.img}>
                                 {mobileView ? <img src="/Images/website-design-mobile.png" /> : <img src="/Images/website-design.png" alt="" />}
                             </Box>
                         </Grid>
+                    </Grid>
                     {/* </Box> */}
                 {/* </Grid> */}
             </Grid>

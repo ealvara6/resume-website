@@ -57,7 +57,7 @@ export default function HomeComponent(props) {
                             <Box className={classes.block}>
                                 <Typography className={classes.title} variant={mobileView ? "h3" : "h1"}>Hello</Typography>
                                 <Typography className={classes.subtitle} variant="h5">A Bit About Me</Typography>
-                                <Typography variant="subtitle1">Hi, My name is Eduardo. I am an aspiring developer currently working on personal web development projects. I graduated from the University of Houston under the C.T Bauer College of Business with a degree in Management Information Systems with magna cum laude honors.</Typography>
+                                <Typography variant="subtitle1">Hi, my name is Eduardo. I am an aspiring developer currently working on personal web development projects. I graduated from the University of Houston under the C.T Bauer College of Business with a degree in Management Information Systems with Magna Cum Laude honors.</Typography>
                                 <Grid container className={classes.buttons} xs={12}>
                                     <Grid item>
                                         <NavButton handleClick={handleComponentChange} mobileView={mobileView} color="#3f51b5"  slide={1500} title="Resume" textColor="#fff"/>
