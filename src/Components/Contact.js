@@ -140,7 +140,7 @@ export default function Contact(props){
 
                             <Box className={classes.info}>
                                 <Typography className={classes.title}>Email</Typography>
-                                <Typography variant={viewPort < 1280 ? "body1" : "subtitle1"}>Eduardo.alvarado1234@ymail.com</Typography>
+                                <Typography variant={viewPort < 1280 ? "body1" : "subtitle1"}>ealvara73@gmail.com</Typography>
                             </Box>
 
                     </Grid>

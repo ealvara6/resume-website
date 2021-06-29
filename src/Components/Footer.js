@@ -47,7 +47,7 @@ export default function Footer(props) {
                 </Grid>
                 <Grid item xs={12} md={3} className={classes.item}>
                     <Typography variant={mobileView ? "h5" : "subtitle1"} className={classes.title}>Email</Typography>
-                    <Typography variant={mobileView ? "body1" : "subtitle2"}>Eduardo.alvarado1234@ymail.com</Typography>
+                    <Typography variant={mobileView ? "body1" : "subtitle2"}>ealvara73@gmail.com</Typography>
                 </Grid>
                 <Grid item xs={12} md={3} className={classes.item}>
                     <Typography variant={mobileView ? "h5" : "subtitle1"} className={classes.title}>Github</Typography>
