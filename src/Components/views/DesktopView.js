@@ -20,7 +20,6 @@ export default function DesktopView(props) {
     const classes = useStyles();
     const mobileView = props.mobileView;
     const [show, setShow] = useState(true);
-    const [menuShow, setMenuShow] = useState(false);
     const [showComponent, setShowComponent] = useState(props.component);
 
     const handleComponentChange = (component) => {
@@ -35,9 +34,6 @@ export default function DesktopView(props) {
 
     const handleMenu = (showMenu, component) => {
         props.handleMenu(showMenu, component)
-        if(showMenu)
-            return setMenuShow(true);
-        setMenuShow(false);
     };
 
     return(

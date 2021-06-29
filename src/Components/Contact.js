@@ -120,6 +120,7 @@ export default function Contact(props){
             case "email": return setData({...data, email: e.target.value});
             case "subject": return setData({...data, subject: e.target.value});
             case "message": return setData({...data, message: e.target.value});
+            default: return("Incorrect Field");
         };
     }
 
@@ -168,7 +169,7 @@ export default function Contact(props){
                         </Grid>
                         <Grid container>
                             <Grid item xs={12} md={6} >
-                                <TextField className={classes.field} onChange={(e) => handleChange("message", e)} fullWidth={viewPort < 1280 ? true : false}  variant="outlined" id="message" label="Message" multiline rows={4} fullWidth />
+                                <TextField className={classes.field} onChange={(e) => handleChange("message", e)} fullWidth  variant="outlined" id="message" label="Message" multiline rows={4} />
                             </Grid>
                             <Grid container xs={12} md={6}>
                                 <Box onClick={() => sendEmail()} display="flex" className={classes.button} justifyContent="center" alignItems="center" marginLeft="15px">

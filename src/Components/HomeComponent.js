@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import React from 'react';
 import NavButton from './NavButton';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';

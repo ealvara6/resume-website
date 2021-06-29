@@ -25,7 +25,7 @@ export default function Success(props){
     }
     //gives feedback that users has re-submitted form
     const showLoading = () => {
-        const timer = setTimeout(() => {
+        setTimeout(() => {
             setIsLoading(false);
         }, 1000);
         return <LinearProgress />

@@ -31,7 +31,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function NavButton(props) {
     const classes = useStyles(props);
-    const mobileView = props.mobileView;
     const timeout = props.slide;
     const title = props.title;
 

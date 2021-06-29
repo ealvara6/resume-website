@@ -2,7 +2,6 @@ import React from 'react';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
-import Fade from '@material-ui/core/Fade';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -56,7 +55,7 @@ export default function Resume(props) {
 
     return(
             <Box className={classes.root}>
-                    <Grid container justify xs={12} justify="center">
+                    <Grid container xs={12} justify="center">
                         <Grid item xs={12} lg={10} xl={10}>
                             <Typography variant="h4" className={classes.header}>Resume</Typography>
                         </Grid>
