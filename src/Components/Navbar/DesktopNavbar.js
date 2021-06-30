@@ -49,6 +49,7 @@ export default function DesktopNavbar(props) {
 
     const handleComponentChange = (component) => {
         props.componentChange(component);
+        props.handleMenu(false, component);
     }
 
     return (

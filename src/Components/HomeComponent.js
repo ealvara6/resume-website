@@ -41,6 +41,7 @@ export default function HomeComponent(props) {
 
     const handleComponentChange = (component) => {
         props.componentChange(component);
+        props.handleMenu(false, component);
     }
 
     return(

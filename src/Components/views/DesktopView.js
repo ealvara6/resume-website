@@ -42,7 +42,7 @@ export default function DesktopView(props) {
                     {mobileView ? <MobileNavbar handleMenu={handleMenu} componentChange={handleComponentChange} /> : <DesktopNavbar componentChange={handleComponentChange} /> }
                         <Fade in={show} timeout={show ? 2000 : 1000}>
                         <Box>
-                            {showComponent === "home" ?<HomeComponent componentChange={handleComponentChange} mobileView={mobileView} />: null}
+                            {showComponent === "home" ?<HomeComponent componentChange={handleComponentChange} handleMenu={handleMenu} mobileView={mobileView} />: null}
                             {showComponent === "resume" ? <Resume mobileView={mobileView} /> : null}
                             {showComponent === "projects" ? <Projects mobileView={mobileView} /> : null}
                             {showComponent === "contact" ? <Contact mobileView={mobileView} /> : null}
