@@ -2,7 +2,6 @@ import {React, useState, useEffect } from 'react';
 import DesktopView from './Components/views/DesktopView';
 import Box from '@material-ui/core/Box';
 import MenuItems from './Components/Navbar/MenuItems';
-import '@fontsource/roboto';
 
 
 function App() {
