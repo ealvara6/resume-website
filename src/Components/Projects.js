@@ -11,6 +11,13 @@ const useStyles = makeStyles((theme) => ({
         },
         marginTop: theme.spacing(10),
     },
+    noticeInfo: {
+        borderStyle: "solid",
+        borderRadius: 8,
+        borderColor: theme.palette.info.main,
+        marginTop: theme.spacing(2),
+        padding: theme.spacing(2),
+    },
     container: {
         [theme.breakpoints.down("lg")]: {
             justify: "flext-start",
@@ -19,22 +26,17 @@ const useStyles = makeStyles((theme) => ({
     },
     header: {
         [theme.breakpoints.up("lg")]: {
-            // marginLeft: theme.spacing(30),
             marginBottom: theme.spacing(10),
         },
         fontWeight: theme.typography.fontWeightBold,
         marginBottom: theme.spacing(3),
     },
     title: {
-        // [theme.breakpoints.down("lg")]: {
             fontSize: 25,
-        // },
         fontWeight: theme.typography.fontWeightBold,
     },
     body: {
-        // [theme.breakpoints.down("lg")]: {
             fontSize: 16,
-        // },
         lineHeight: "1.7",
     },
     project: {
@@ -63,7 +65,32 @@ export default function Projects(props){
                     </Grid>
                 </Grid>
 
-                    {/* <Box display="flex" className={classes.project}> */}
+                <Grid container className={classes.container}>
+                        <Grid item xs={12} lg={3} className={classes.project}>
+                            <Box marginBottom="15px">
+                                <Typography variant="h6" className={classes.title}>Top Headline News</Typography>
+                                <Typography variant={mobileView ? "body1" : "caption"}> <a href="https://news-website-py895.ondigitalocean.app/" target="_blank" rel="noreferrer">news-website-py895.ondigitalocean.app</a></Typography>
+                            </Box>
+
+                            <Typography variant="body2" className={classes.body}>
+                            I recently created a single page application using React.js for the front-end and Node.js for the back-end which makes API calls to the <a href="https://newsapi.org/">News API</a>. It receives top news headlines from multiple news sources across the world and separates them by categories from which you can filter.
+                            </Typography>
+                            <Grid container style={{justifyContent: "center"}}>
+                                <Grid item xs={11} className={classes.noticeInfo}>
+                                        <Typography variant="h6">Important Note: </Typography>
+                                        <Typography variant="subtitle2">The API that I use for this project does not allow the free developer plan to make requests for a production build. therefore, the website will only show you pre-defined data from the US, and the "change location" feature will not produce new articles. If you would like to see the full features of this website, please visit the Github repo for instructions on how to do so.</Typography>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                        <Grid item xs={12} lg={6}>
+                            <Box className={classes.img}>
+                                {mobileView ? <img src="/Images/news-website-mobile.png" alt="News-Website" /> : <img src="/Images/news-website.png" alt="News-Website" />}
+                            </Box>
+                        </Grid>
+                    </Grid>
+
+
+
                     <Grid container className={classes.container}>
                         <Grid item xs={12} lg={3} className={classes.project}>
                             <Box marginBottom="15px">
@@ -95,7 +122,8 @@ export default function Projects(props){
                             </Box>
                         </Grid>
                     </Grid>
-                    {/* </Box> */}
+
+
 
                     <Grid container className={classes.container}>
                     {/* <Box display="flex" className={classes.project}> */}
@@ -109,8 +137,6 @@ export default function Projects(props){
                             </Box>
                         </Grid>
                     </Grid>
-                    {/* </Box> */}
-                {/* </Grid> */}
             </Grid>
         </Box>
     )
