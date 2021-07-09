@@ -77,8 +77,8 @@ export default function Projects(props){
                             </Typography>
                             <Grid container style={{justifyContent: "center"}}>
                                 <Grid item xs={11} className={classes.noticeInfo}>
-                                        <Typography variant="h6">Important Note: </Typography>
-                                        <Typography variant="subtitle2">The API that I use for this project does not allow the free developer plan to make requests for a production build. therefore, the website will only show you pre-defined data from the US, and the "change location" feature will not produce new articles. If you would like to see the full features of this website, please visit the Github repo for instructions on how to do so.</Typography>
+                                        <Box display="flex" justifyContent="center"><Typography variant="h6">Important Note</Typography></Box>
+                                        <Typography variant="subtitle2">The API that I use for this project does not allow the free developer plan to make requests for a production build. therefore, the website will only show you pre-defined data from the US, and the "change location" feature will not produce new articles. If you would like to see the full features of this website, please visit the Github <a href="https://github.com/ealvara6/news-website" target="_blank" rel="noreferrer">repo</a> for instructions on how to do so.</Typography>
                                 </Grid>
                             </Grid>
                         </Grid>
